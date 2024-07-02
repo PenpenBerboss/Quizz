@@ -1,2 +1,2 @@
 # Quizz
-Cet application est un petit quizz de jeu de mot
+Cet application vous apprends à écrire plus vite, avec un timer pour contrôler votre vitesse de saisie
