@@ -1,6 +1,9 @@
 body {
     font-family: Arial, sans-serif;
-    background-color: #f0f0f0;
+    background-image: url("./images/1.jpg");
+    background-size: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -29,7 +32,7 @@ body {
     border-radius: 5px;
 }
 
-#BoutonValider {
+#BoutonValider, .controls button{
     padding: 10px 20px;
     border: none;
     border-radius: 5px;
@@ -38,10 +41,25 @@ body {
     font-size: 16px;
     cursor: pointer;
     transition: background-color 0.3s;
+    margin: 5px;
 }
 
 #BoutonValider:hover {
     background-color: #45a049;
+}
+
+#progressBar {
+    width: 80%;
+    background-color: #ddd;
+    margin: 10px auto;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+#progress {
+    width: 0;
+    height: 10px;
+    background-color: #4CAF50;
 }
 
 #resultat {
@@ -49,4 +67,13 @@ body {
     font-size: 18px;
     font-weight: bold;
     color: #333;
+}
+
+.controls {
+    margin-top: 20px;
+}
+
+.controls button {
+    padding: 10px;
+    font-size: 14px;
 }
