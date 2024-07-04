@@ -74,15 +74,15 @@ body {
 }
 
 #highScore {
-      position: fixed;
-      top: 10px;
-      right: 10px;
-      background-color: #f8f9fa;
-      padding: 10px;
-      border: 1px solid #dee2e6;
-      border-radius: 5px;
-      font-size: 14px;
-    }
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  background-color: #f8f9fa;
+  padding: 10px;
+  border: 1px solid #dee2e6;
+  border-radius: 5px;
+  font-size: 14px;
+}
 
 .controls {
   margin-top: 20px;
@@ -121,4 +121,12 @@ body {
     max-width: 200px; /* Limite la largeur maximale des boutons */
     margin: 10px; /* Marge entre les boutons */
   }
+}
+
+footer {
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  font-size: 14px;
+  color: white;
 }
