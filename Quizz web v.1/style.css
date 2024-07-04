@@ -1,14 +1,17 @@
 body {
-    font-family: Arial, sans-serif;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif, Arial, sans-serif, sans-serif;
+    position: relative;
     background-image: url("./images/1.jpg");
-    background-size: 100%;
+    background-size: cover;
     background-position: center;
-    background-repeat: no-repeat;
+    /* background-repeat: no-repeat; */
     display: flex;
     justify-content: center;
     align-items: center;
+    width: 100%;
     height: 100vh;
     margin: 0;
+    font-size: 20px;
 }
 
 .container {
@@ -16,7 +19,7 @@ body {
     background-color: #ffffff;
     padding: 20px;
     border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 15px rgb(181, 10, 172);
 }
 
 .options,
@@ -36,7 +39,7 @@ body {
     padding: 10px 20px;
     border: none;
     border-radius: 5px;
-    background-color: #4CAF50;
+    background-color: #af4caf;
     color: white;
     font-size: 16px;
     cursor: pointer;
@@ -44,7 +47,8 @@ body {
     margin: 5px;
 }
 
-#BoutonValider:hover {
+#BoutonValider:hover,
+.controls button:hover {
     background-color: #45a049;
 }
 
@@ -59,7 +63,7 @@ body {
 #progress {
     width: 0;
     height: 10px;
-    background-color: #4CAF50;
+    background-color: #904caf;
 }
 
 #resultat {

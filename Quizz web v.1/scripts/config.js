@@ -11,7 +11,8 @@ const listePhrases = [
 ];
 
 const listeMots = ["Cachalot", "Pétunia", "Serviette", "Salut", "Coucou"];
+let propositions = [];
 let propositionsActuelIndex = 0;
-let propositions = listeMots;
 let timer;
 let isPaused = false;
+let mode = "mots";

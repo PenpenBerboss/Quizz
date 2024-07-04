@@ -17,6 +17,7 @@ function afficherProposition(proposition) {
 }
 
 function gererValidation() {
+  // document.getElementById("BoutonStart").disabled = true;
   const inputEcriture = document.getElementById("ZoneReponse");
   const reponseUtilisateur = inputEcriture.value;
   const reponseAttendue = propositions[propositionsActuelIndex];
@@ -25,30 +26,32 @@ function gererValidation() {
     score++;
   }
 
-  // propositionsActuelIndex++;
   inputEcriture.value = "";
 
   playSound("click"); // Jouer le son pour le clic
 
+  propositionsActuelIndex++;
   if (propositionsActuelIndex >= propositions.length) {
     afficherProposition("Le jeu est fini");
     document.getElementById("BoutonValider").disabled = true;
     afficherResultat(score, nbPropositions);
     playSound("end"); // Jouer le son pour la fin du jeu
     clearInterval(timer);
+    document.getElementById("progressBar").style.display = "none"; // Masquer la barre de progression
   } else {
-    afficherProposition(propositions[getRandomIndex()]);
+    afficherProposition(propositions[propositionsActuelIndex]);
     resetProgressBar();
   }
 }
 
-function changerPropositions(type) {
-  propositions = type === "mots" ? listeMots : listePhrases;
+function changerPropositions() {
+  propositions = mode === "mots" ? [...listeMots] : [...listePhrases];
+  propositions = shuffleArray(propositions);
   propositionsActuelIndex = 0;
   score = 0;
   nbPropositions = propositions.length;
   document.getElementById("BoutonValider").disabled = false;
-  afficherProposition(propositions[getRandomIndex()]);
+  afficherProposition(propositions[propositionsActuelIndex]);
   afficherResultat(score, nbPropositions);
   resetProgressBar();
 }
@@ -57,18 +60,13 @@ function lancerJeu() {
   const options = document.getElementsByName("optionSource");
   options.forEach(function (option) {
     option.addEventListener("change", (event) => {
-      changerPropositions(event.target.value);
+      mode = event.target.value;
     });
   });
 
   document
-    .getElementById("ZoneReponse")
-    .addEventListener("input", (event) => {});
-
-  document
     .getElementById("BoutonValider")
     .addEventListener("click", gererValidation);
-  afficherProposition(propositions[propositionsActuelIndex]);
 
   document
     .getElementById("ZoneReponse")
@@ -82,7 +80,6 @@ function lancerJeu() {
   document.getElementById("BoutonPlay").addEventListener("click", playTimer);
   document.getElementById("BoutonStart").addEventListener("click", startGame);
 
-  changerPropositions("mots");
   document.getElementById("progressBar").style.display = "none"; // Masquer la barre de progression au début
 }
 
@@ -137,9 +134,17 @@ function playTimer() {
 
 function startGame() {
   document.getElementById("ZoneReponse").disabled = false;
+  document.getElementById("BoutonValider").disabled = false;
   document.getElementById("progressBar").style.display = "block"; // Afficher la barre de progression
-  changerPropositions("mots");
-  resetProgressBar();
+  changerPropositions();
+}
+
+function shuffleArray(array) {
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
+  }
+  return array;
 }
 
 lancerJeu();
